@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_cliente')->unique();
             $table->string('nombre');
             $table->string('apellido');
-            $table->interger('telefono');
+            $table->integer('telefono');
             $table->string('email');
             $table->string('direccion');
             
