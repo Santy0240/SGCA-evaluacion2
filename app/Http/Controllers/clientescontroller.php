@@ -102,7 +102,5 @@ class clientescontroller extends Controller
 
         $clientes=clientes::all();
         return view('clientes.index',['clientes'=>$clientes]);
-
     }
 }
-
