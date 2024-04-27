@@ -29,16 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-Route ::get('/vehiculos',[vehiculoscontroller::class,'index'])->name('vehiculos.index');
+    
+    Route ::get('/vehiculos',[vehiculoscontroller::class,'index'])->name('vehiculos.index');
 Route ::post('/vehiculos',[vehiculoscontroller::class,'store'])->name('vehiculos.store');
 Route ::get('/vehiculos/create',[vehiculoscontroller::class,'create'])->name('vehiculos.create');
 Route ::delete('/vehiculos/{vehiculo}',[vehiculoscontroller::class,'destroy'])->name('vehiculos.destroy');
 Route ::put('/vehiculos/{vehiculo}',[vehiculoscontroller::class,'update'])->name('vehiculos.update');
 Route ::get('/vehiculos/{vehiculo}/edit',[vehiculoscontroller::class,'edit'])->name('vehiculos.edit');
 
-//rutas clientes
+
 Route ::get('/clientes',[clientescontroller::class,'index'])->name('clientes.index');
 Route ::post('/clientes',[clientescontroller::class,'store'])->name('clientes.store');
 Route ::get('/clientes/create',[clientescontroller::class,'create'])->name('clientes.create');
@@ -46,7 +45,7 @@ Route ::delete('/clientes/{cliente}',[clientescontroller::class,'destroy'])->nam
 Route ::put('/clientes/{cliente}',[clientescontroller::class,'update'])->name('clientes.update');
 Route ::get('/clientes/{cliente}/edit',[clientescontroller::class,'edit'])->name('clientes.edit');
 
-//rutas ventas
+
 Route ::get('/ventas',[ventascontroller::class,'index'])->name('ventas.index');
 Route ::post('/ventas',[ventascontroller::class,'store'])->name('ventas.store');
 Route ::get('/ventas/create',[ventascontroller::class,'create'])->name('ventas.create');
