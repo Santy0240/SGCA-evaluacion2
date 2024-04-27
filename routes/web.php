@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\clientescontroller;
 use App\Http\Controllers\vehiculoscontroller;
 use App\Http\Controllers\ventascontroller;
-use App\Http\Controllers\ClientesController;
+
 
 
 /*
@@ -61,5 +61,4 @@ Route ::get('/ventas/{venta}/edit',[ventascontroller::class,'edit'])->name('vent
 });
 
 require __DIR__.'/auth.php';
-=======
 
