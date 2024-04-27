@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\clientescontroller;
 use App\Http\Controllers\vehiculoscontroller;
 use App\Http\Controllers\ventascontroller;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//rutas vehiculos 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
 Route ::get('/vehiculos',[vehiculoscontroller::class,'index'])->name('vehiculos.index');
 Route ::post('/vehiculos',[vehiculoscontroller::class,'store'])->name('vehiculos.store');
 Route ::get('/vehiculos/create',[vehiculoscontroller::class,'create'])->name('vehiculos.create');
@@ -44,3 +54,6 @@ Route ::delete('/ventas/{venta}',[ventascontroller::class,'destroy'])->name('ven
 Route ::put('/ventas/{venta}',[ventascontroller::class,'update'])->name('ventas.update');
 Route ::get('/ventas/{venta}/edit',[ventascontroller::class,'edit'])->name('ventas.edit');
 
+});
+
+require __DIR__.'/auth.php';
