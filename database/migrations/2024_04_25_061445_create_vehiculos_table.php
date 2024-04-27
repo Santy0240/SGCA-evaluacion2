@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ventas', function (Blueprint $table) {
-            $table->id('id_venta');
-            $table->integer('id_vehiculo');
-            $table->integer('id_cliente');
-            $table->date('fecha_venta');
-            $table->integer('precio_final');
+        Schema::create('vehiculos', function (Blueprint $table) {
+            $table->id('id_vehiculo')->unique();
+            $table->string('marca');
+            $table->string('modelo');
+            $table->integer('año');
+            $table->integer('precio');
+            $table->integer('kilometraje');
+            $table->string('tipo');
+
+
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ventas');
+        Schema::dropIfExists('vehiculos');
     }
 };
